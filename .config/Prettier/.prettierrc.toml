@@ -224,11 +224,9 @@ multilineArraysWrapThreshold = -1
 
 # REF: https://prettier.io/docs/en/configuration#configuration-overrides
 [[overrides]]
+    files = [ #
+        "*.md",
+    ]
 
-files = [ #
-    "*.md",
-]
-
-[overrides.options]
-
-tabWidth = 2
+    [overrides.options]
+        tabWidth = 2

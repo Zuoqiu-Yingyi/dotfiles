@@ -1,5 +1,9 @@
 # 更改日志 | Change Log
 
+## 2024-06-12
+
+- 添加 `Oh My Posh` 主题文件 `theme.omp.toml` | Add `Oh My Posh` theme file `theme.omp.toml`
+
 ## 2024-06-11
 
 - 添加 `PowerShell` 配置文件 `profile.ps1` | Add `PowerShell` config file `profile.ps1`

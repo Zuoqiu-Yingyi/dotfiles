@@ -1,0 +1,237 @@
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+
+final_space = false
+version = 2
+
+[[blocks]] # 第 1 行 (左)
+    type = "prompt"
+    alignment = "left"
+
+    [[blocks.segments]] # 引导线
+        type = "text"
+        style = "plain"
+        foreground = "#0A703E"
+        template = "╭─"
+
+    [[blocks.segments]] # 操作系统图标
+        type = "os"
+        style = "plain"
+        background = "#0A703E"
+        template = " {{ if .WSL }} ↝ {{ end }}{{ .Icon }} "
+
+        [blocks.segments.properties]
+            # alpine = "\uf300"
+            # arch = "\uf303"
+            # centos = "\uf304"
+            # debian = "\uf306"
+            # elementary = "\uf309"
+            # fedora = "\uf30a"
+            # gentoo = "\uf30d"
+            # linux = "\ue712"
+            # macos = "\ue711"
+            # manjaro = "\uf312"
+            # mint = "\uf30f"
+            # opensuse = "\uf314"
+            # raspbian = "\uf315"
+            # ubuntu = "\uf31c"
+            # windows = "\ue70f"
+
+    [[blocks.segments]] # 用户名 @ 主机名
+        type = "shell"
+        style = "plain"
+        background = "#0A703E"
+        template = " {{ .UserName }}＠{{ .HostName }} "
+
+    [[blocks.segments]] # 是否为 root 用户
+        type = "root"
+        style = "plain"
+        background = "#0A703E"
+        template = " "
+
+    [[blocks.segments]] # 当前目录
+        type = "path"
+        style = "plain"
+        background = "#256C9D"
+        template = " {{ .Path }} "
+
+        [blocks.segments.properties]
+            style = "full"
+            folder_separator_icon = "/"
+
+
+[[blocks]] # 第 1 行 (右)
+    type = "prompt"
+    alignment = "right"
+
+    [[blocks.segments]] # 上次执行时间
+        type = "executiontime"
+        style = "diamond"
+        leading_diamond = ""
+        background = "#143467"
+
+        # template = "⏱️  {{ .FormattedMs }}s "
+        template = " {{ .FormattedMs }} s "
+
+        [blocks.segments.properties]
+            style = "dallas"
+            threshold = 0
+
+    [[blocks.segments]] # 上次执行状态
+        type = "status"
+        style = "diamond"
+        trailing_diamond = ""
+        foreground = "#B7DFB9"
+        foreground_templates = ["{{ if .Error }}#FFD599{{ end }}"]
+        background = "#425347"
+        background_templates = ["{{ if .Error }}#554636{{ end }}"]
+
+        [blocks.segments.properties]
+            always_enabled = true
+            status_template = "{{ if eq .Code 0 }}{{ else }}{{ end }}  {{ reason .Code }}"
+
+[[blocks]] # 第 2 行
+    type = "prompt"
+    newline = true
+    alignment = "left"
+
+    [[blocks.segments]] # 引导线
+        type = "text"
+        style = "plain"
+        foreground = "#663D74"
+        template = "├─"
+
+    [[blocks.segments]] # 当前时间
+        type = "time"
+        style = "plain"
+        background = "#663D74"
+        template = "   {{ .CurrentDate | date .Format }} "
+
+        [blocks.segments.properties]
+            time_format = "2006-01-02 15:04:05"
+
+    [[blocks.segments]] # 当前 Git 仓库状态
+        type = "git"
+        style = "plain"
+        background = "#22272E"
+
+        # {{ .UpstreamIcon }}: 远程托管图标
+        # {{ .RepoName }}: 仓库名称
+        # {{ .HEAD }}: 分支名
+        # {{ .BranchStatus }}: 分支状态
+        # {{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}: 工作区存在更改
+        # {{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}: 工作区存在更改且暂存区存在更改
+        # {{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}: 暂存区存在更改
+        # {{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }}: 存在的 Stash 数量
+        template = """ \
+            {{ .UpstreamIcon }} \
+            {{ .RepoName }} \
+            {{ .HEAD }} \
+            {{ .BranchStatus }}\
+            {{ if .Working.Changed }}  {{ .Working.String }}{{ end }}\
+            {{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}\
+            {{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}\
+            {{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }} \
+        """
+
+        [blocks.segments.properties]
+            fetch_status = true
+            fetch_stash_count = true
+            fetch_upstream_icon = true
+
+    [[blocks.segments]] # 当前项目信息
+        type = "project"
+        style = "plain"
+        background = "#424C50"
+        template = """ \
+             \
+            {{ if .Error }}{{ .Error }}{{ else }}\
+            {{ if .Name }} {{ .Name }}{{ end }}\
+            {{ if .Type }} {{ .Type }}{{ end }}\
+            {{ if .Version }} {{ .Version }}{{ end }}{{ end }} \
+        """
+
+[[blocks]] # 第 3 行
+    type = "prompt"
+    newline = true
+    alignment = "left"
+
+    [[blocks.segments]] # 引导线
+        type = "text"
+        style = "plain"
+        foreground = "#686A67"
+        template = "├─"
+
+    [[blocks.segments]] # 系统资源信息
+        type = "sysinfo"
+        style = "diamond"
+        trailing_diamond = ""
+        background = "#686A67"
+        template = """ \
+              \
+            {{ round .PhysicalPercentUsed .Precision }}%\
+            {{ if gt .SwapTotalMemory 0 }} {{ round .SwapPercentUsed .Precision }}%{{ end }} \
+        """
+
+        [blocks.segments.properties]
+            precision = 2
+
+    [[blocks.segments]] # Python 环境信息
+        type = "python"
+        style = "diamond"
+        leading_diamond = "<transparent></>"
+        trailing_diamond = ""
+        background = "#686A67"
+        template = "   Python {{ .Venv }} {{ .Full }} "
+
+        [blocks.segments.properties]
+            # display_mode = "always"
+            display_virtual_env = true
+            display_default = true
+            display_version = true
+
+    [[blocks.segments]] # Go 环境信息
+        type = "go"
+        style = "diamond"
+        leading_diamond = "<transparent></>"
+        trailing_diamond = ""
+        background = "#686A67"
+        template = "   Go {{ .Full }} "
+
+        [blocks.segments.properties]
+            # display_mode = "always"
+            home_enabled = true
+            missing_command_text = ""
+
+    [[blocks.segments]] # Node.js 环境信息
+        type = "node"
+        style = "diamond"
+        leading_diamond = "<transparent></>"
+        trailing_diamond = ""
+        background = "#686A67"
+        template = "   Node {{ .Full }} "
+
+        [blocks.segments.properties]
+            # display_mode = "always"
+            fetch_package_manager = true
+
+[[blocks]] # 第 4 行
+    type = "prompt"
+    newline = true
+    alignment = "left"
+
+    [[blocks.segments]]
+        type = "text"
+        style = "plain"
+        foreground = "#256C9D"
+        template = "╰─"
+
+    [[blocks.segments]] # Shell 信息
+        type = "shell"
+        style = "diamond"
+        leading_diamond = ""
+        trailing_diamond = ""
+        foreground = "#FFFFFF"
+        background = "#256C9D"
+
+        # template = "  {{ .Name }} {{ .Version }} ➜ "
+        template = "  {{ .Name }} {{ .Version }}  "
