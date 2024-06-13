@@ -1,5 +1,9 @@
 # 更改日志 | Change Log
 
+## 2024-06-14
+
+- 更新 `prettier` 配置文件 | Update `prettier` config file
+
 ## 2024-06-12
 
 - 添加 `Oh My Posh` 主题文件 `theme.omp.toml` | Add `Oh My Posh` theme file `theme.omp.toml`
