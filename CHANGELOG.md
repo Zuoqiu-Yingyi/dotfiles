@@ -1,5 +1,9 @@
 # 更改日志 | Change Log
 
+## 2024-06-16
+
+- 添加 `EditorConfig` 配置文件 | Add `EditorConfig` config file
+
 ## 2024-06-14
 
 - 更新 `prettier` 配置文件 | Update `prettier` config file
