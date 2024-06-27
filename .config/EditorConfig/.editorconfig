@@ -21,6 +21,6 @@ trim_trailing_whitespace = true
 tab_width = 2
 trim_trailing_whitespace = true
 
-[*.{c,cjs,cpp,cpp,css,cts,html,htm,java,js,json,json5,jsonc,jsx,kt,less,mjs,mts,py,sass,scss,svelte,tex,toml,ts,tsx,typ,vue,xml,sql}]
+[*.{c,cjs,cpp,cpp,css,cts,htm,html,java,js,json,json5,jsonc,jsx,kt,less,mjs,mts,py,sass,scss,sql,svelte,tex,toml,ts,tsx,typ,vue,xml}]
 indent_size = 4
 trim_trailing_whitespace = true
