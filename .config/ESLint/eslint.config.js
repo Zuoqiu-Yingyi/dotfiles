@@ -8,6 +8,22 @@ export default antfu({
         semi: true,
         arrowParens: true,
         quoteProps: "as-needed",
+        overrides: {
+            "style/arrow-parens": [
+                "warn",
+                "always",
+            ],
+            "style/no-trailing-spaces": [
+                "warn",
+                {
+                    ignoreComments: true,
+                },
+            ],
+            "style/linebreak-style": [
+                "error",
+                "unix",
+            ],
+        },
     },
     formatters: {
         css: "prettier",
@@ -16,15 +32,30 @@ export default antfu({
         graphql: "prettier",
         prettierOptions: {
             tabWidth: 4,
-            printWidth: 1024,
+            printWidth: Infinity,
             trailingComma: "all",
             bracketSameLine: false,
             singleAttributePerLine: true,
         },
     },
+    jsonc: {
+        overrides: {
+            "jsonc/comma-dangle": [
+                "warn",
+                "only-multiline",
+            ],
+        },
+    },
     typescript: {
         overrides: {
+            "sort-imports": ["off"],
             "import/order": ["off"],
+            "ts/no-empty-object-type": [
+                "warn",
+                {
+                    allowInterfaces: "with-single-extends",
+                },
+            ],
             "perfectionist/sort-array-includes": [
                 "warn",
                 {

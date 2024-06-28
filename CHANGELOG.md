@@ -1,5 +1,9 @@
 # 更改日志 | Change Log
 
+## 2024-06-28
+
+- 更新 `ESLint` 配置文件 | Update `ESLint` config file
+
 ## 2024-06-27
 
 - 添加 `ESLint` 配置文件 | Add `ESLint` config file
