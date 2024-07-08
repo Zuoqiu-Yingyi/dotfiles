@@ -82,7 +82,7 @@ export default antfu({
                             "$repo", // import module from "@repo/module";
                             "$workspace", // import module from "@workspace/module";
                         ],
-                        "$root", // import module from "~/module";
+                        "$base", // import module from "~/module";
                         "internal", // import module from "@/module";
                         [
                             "$vue", // import Component from "Component.vue";
@@ -104,7 +104,7 @@ export default antfu({
                             "$repo-type", // import type module from "@repo/module";
                             "$workspace-type", // import type module from "@workspace/module";
                         ],
-                        "$root-type", // import type module from "~/module";
+                        "$base-type", // import type module from "~/module";
                         "internal-type", // import type module from "@/module";
                         [
                             "$vue-type", // import type Component from "Component.vue";
@@ -128,7 +128,7 @@ export default antfu({
                             $node: "node:**",
                             $repo: "@repo/**",
                             $workspace: "@workspace/**",
-                            $root: "~/**",
+                            $base: "~/**",
                             $vue: "**.vue",
                             $svelte: "**.svelte",
                         },
@@ -136,7 +136,7 @@ export default antfu({
                             "$node-type": "node:**",
                             "$repo-type": "@repo/**",
                             "$workspace-type": "@workspace/**",
-                            "$root-type": "~/**",
+                            "$base-type": "~/**",
                             "$vue-type": "**.vue",
                             "$svelte-type": "**.svelte",
                         },

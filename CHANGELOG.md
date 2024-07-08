@@ -1,5 +1,9 @@
 # 更改日志 | Change Log
 
+## 2024-07-08
+
+- 添加 `TypeScript` 配置文件 | Add `TypeScript` config file
+
 ## 2024-06-28
 
 - 更新 `ESLint` 配置文件 | Update `ESLint` config file
