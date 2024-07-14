@@ -1,5 +1,9 @@
 # 更改日志 | Change Log
 
+## 2024-07-14
+
+- 添加 `Nushell` 自定义环境文件 | Add `Nushell` custom environment file
+
 ## 2024-07-08
 
 - 添加 `TypeScript` 配置文件 | Add `TypeScript` config file
