@@ -182,10 +182,10 @@ version = 2
         leading_diamond = "<transparent></>"
         trailing_diamond = ""
         background = "#000000"
-        template = "   Rust {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+        template = "   <b>Rust</b> {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
 
         [blocks.segments.properties]
-            # display_mode = "always"
+            display_mode = "always"
             home_enabled = true
             missing_command_text = ""
 
@@ -196,10 +196,24 @@ version = 2
         leading_diamond = "<transparent></>"
         trailing_diamond = ""
         background = "#00ADD8"
-        template = "   Go {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+        template = "   <b>Go</b> {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
 
         [blocks.segments.properties]
-            # display_mode = "always"
+            display_mode = "always"
+            home_enabled = true
+            missing_command_text = ""
+
+    # REF: https://ohmyposh.dev/docs/segments/languages/kotlin
+    [[blocks.segments]] # Kotlin 环境信息
+        type = "kotlin"
+        style = "diamond"
+        leading_diamond = "<transparent></>"
+        trailing_diamond = ""
+        background = "#7F52FF"
+        template = " <b>Ｋ</b> <b>Kotlin</b> {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+
+        [blocks.segments.properties]
+            display_mode = "always"
             home_enabled = true
             missing_command_text = ""
 
@@ -210,10 +224,10 @@ version = 2
         leading_diamond = "<transparent></>"
         trailing_diamond = ""
         background = "#E11F21"
-        template = "   Java {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+        template = "   <b>Java</b> {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
 
         [blocks.segments.properties]
-            # display_mode = "always"
+            display_mode = "always"
             home_enabled = true
             missing_command_text = ""
 
@@ -224,10 +238,10 @@ version = 2
         leading_diamond = "<transparent></>"
         trailing_diamond = ""
         background = "#3776AB"
-        template = "   Python {{ if .Venv }} {{ .Venv }}{{ end }}{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+        template = "   <b>Python</b> {{ if .Venv }} {{ .Venv }}{{ end }}{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
 
         [blocks.segments.properties]
-            # display_mode = "always"
+            display_mode = "always"
             home_enabled = true
             missing_command_text = ""
 
@@ -242,10 +256,10 @@ version = 2
         leading_diamond = "<transparent></>"
         trailing_diamond = ""
         background = "#5FA04E"
-        template = "   Node {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+        template = "   <b>Node</b> {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
 
         [blocks.segments.properties]
-            # display_mode = "always"
+            display_mode = "always"
             home_enabled = true
             missing_command_text = ""
 
@@ -271,4 +285,4 @@ version = 2
         background = "#0078D4"
 
         # template = "  {{ .Name }} {{ .Version }} ➜ "
-        template = "  {{ .Name }} {{ .Version }}  "
+        template = "  <b>{{ .Name }}</b> {{ .Version }}  "
