@@ -175,20 +175,19 @@ version = 2
         [blocks.segments.properties]
             precision = 2
 
-    # REF: https://ohmyposh.dev/docs/segments/languages/python
-    [[blocks.segments]] # Python 环境信息
-        type = "python"
+    # REF: https://ohmyposh.dev/docs/segments/languages/node
+    [[blocks.segments]] # Rust 环境信息
+        type = "rust"
         style = "diamond"
         leading_diamond = "<transparent></>"
         trailing_diamond = ""
-        background = "#3776AB"
-        template = "   Python {{ .Venv }} {{ .Full }} "
+        background = "#000000"
+        template = "   Rust {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
 
         [blocks.segments.properties]
             # display_mode = "always"
-            display_virtual_env = true
-            display_default = true
-            display_version = true
+            home_enabled = true
+            missing_command_text = ""
 
     # REF: https://ohmyposh.dev/docs/segments/languages/golang
     [[blocks.segments]] # Go 环境信息
@@ -197,12 +196,44 @@ version = 2
         leading_diamond = "<transparent></>"
         trailing_diamond = ""
         background = "#00ADD8"
-        template = "   Go {{ .Full }} "
+        template = "   Go {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
 
         [blocks.segments.properties]
             # display_mode = "always"
             home_enabled = true
             missing_command_text = ""
+
+    # REF: https://ohmyposh.dev/docs/segments/languages/java
+    [[blocks.segments]] # Java 环境信息
+        type = "java"
+        style = "diamond"
+        leading_diamond = "<transparent></>"
+        trailing_diamond = ""
+        background = "#E11F21"
+        template = "   Java {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+
+        [blocks.segments.properties]
+            # display_mode = "always"
+            home_enabled = true
+            missing_command_text = ""
+
+    # REF: https://ohmyposh.dev/docs/segments/languages/python
+    [[blocks.segments]] # Python 环境信息
+        type = "python"
+        style = "diamond"
+        leading_diamond = "<transparent></>"
+        trailing_diamond = ""
+        background = "#3776AB"
+        template = "   Python {{ if .Venv }} {{ .Venv }}{{ end }}{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
+
+        [blocks.segments.properties]
+            # display_mode = "always"
+            home_enabled = true
+            missing_command_text = ""
+
+            display_virtual_env = true
+            display_default = true
+            display_version = true
 
     # REF: https://ohmyposh.dev/docs/segments/languages/node
     [[blocks.segments]] # Node.js 环境信息
@@ -211,23 +242,13 @@ version = 2
         leading_diamond = "<transparent></>"
         trailing_diamond = ""
         background = "#5FA04E"
-        template = "   Node {{ .Full }} "
+        template = "   Node {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
 
         [blocks.segments.properties]
             # display_mode = "always"
-            fetch_package_manager = true
+            home_enabled = true
+            missing_command_text = ""
 
-    # REF: https://ohmyposh.dev/docs/segments/languages/node
-    [[blocks.segments]] # Rust 环境信息
-        type = "rust"
-        style = "diamond"
-        leading_diamond = "<transparent></>"
-        trailing_diamond = ""
-        background = "#000000"
-        template = "   Rust {{ .Full }} "
-
-        [blocks.segments.properties]
-            # display_mode = "always"
             fetch_package_manager = true
 
 [[blocks]] # 第 4 行
@@ -238,7 +259,7 @@ version = 2
     [[blocks.segments]]
         type = "text"
         style = "plain"
-        foreground = "#256C9D"
+        foreground = "#0078D4"
         template = "╰─"
 
     [[blocks.segments]] # Shell 信息
