@@ -7,6 +7,7 @@
 - 添加 `Java` 语言片段 | Add `Java` language snippet
 - 添加 `Kotlin` 语言片段 | Add `Kotlin` language snippet
 - 添加电源状态信息片段 | Add power status snippet
+- 添加网络状态信息片段 | Add connection status snippet
 
 ## 2024-07-08
 

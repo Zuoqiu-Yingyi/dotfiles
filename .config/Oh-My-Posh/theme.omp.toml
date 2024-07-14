@@ -177,21 +177,47 @@ version = 2
             precision = 2
 
     # REF: https://ohmyposh.dev/docs/segments/system/battery
-    [[blocks.segments]] # 电量信息
+    [[blocks.segments]] # 电源状态信息
         type = "battery"
         style = "powerline"
         powerline_symbol = ""
         background_templates = [
-            "{{ if eq \"Charging\" .State.String }}#40c4ff{{ end }}",
-            "{{ if eq \"Discharging\" .State.String }}#ff5722{{ end }}",
-            "{{ if eq \"Full\" .State.String }}#4caf50{{ end }}"
+            "{{ if eq .State.String \"Charging\" }}#C67915{{ end }}",
+            "{{ if eq .State.String \"Discharging\" }}#3F503B{{ end }}",
+            "{{ if eq .State.String \"Full\" }}#3F4F65{{ end }}"
         ]
-        template = "🔋 {{ if .Error }}{{ .Error}}{{ else }}{{ .Percentage }}% {{ .Icon }}{{ end }} "
+        template = """ \
+            {{ if eq "Discharging" .State.String }}{{ else }}{{ end }} \
+            {{ .Icon }}  \
+            {{ if .Error }}{{ .Error}}{{ else }}{{ .Percentage }}%{{ end }} \
+        """
 
         [blocks.segments.properties]
-            discharging_icon = ""
-            charging_icon = ""
+            discharging_icon = ""
+            charging_icon = ""
             charged_icon = ""
+
+    # REF: https://ohmyposh.dev/docs/segments/system/connection
+    [[blocks.segments]] # 网络状态信息
+        type = "connection"
+        style = "powerline"
+        powerline_symbol = ""
+        background = "#2C2F3B"
+        background_templates = [
+            # "{{ if eq .Type \"wifi\" }}#2C2F3B{{ end }}",
+            # "{{ if eq .Type \"ethernet\" }}#2C2F3B{{ end }}",
+            "{{ if eq .Type \"bluetooth\" }}#0082FC{{ end }}"
+            # "{{ if eq .Type \"cellular\" }}#2C2F3B{{ end }}"
+        ]
+        template = """ \
+            {{ if eq .Type "wifi"}}\
+            {{ else if eq .Type "ethernet"}}\
+            {{ else if eq .Type "bluetooth"}}\
+            {{ else if eq .Type "cellular"}}\
+            {{ end }}  \
+            {{ if .Name }}<b>{{ .Name }}</b> {{ end }}\
+            {{ if .SSID }}<b>{{ .SSID }}</b> {{ end }}\
+        """
 
     # REF: https://ohmyposh.dev/docs/segments/languages/node
     [[blocks.segments]] # Rust 环境信息
