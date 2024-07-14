@@ -3,6 +3,7 @@
 ## 2024-07-14
 
 - 添加 `Nushell` 自定义环境文件 | Add `Nushell` custom environment file
+- 更新 `Oh My Posh` 主题文件 `theme.omp.toml` | Update `Oh My Posh` theme file `theme.omp.toml`
 
 ## 2024-07-08
 

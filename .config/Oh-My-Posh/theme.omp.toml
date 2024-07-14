@@ -164,7 +164,7 @@ version = 2
     [[blocks.segments]] # 系统资源信息
         type = "sysinfo"
         style = "diamond"
-        trailing_diamond = ""
+        trailing_diamond = ""
         background = "#686A67"
         template = """ \
               \
@@ -175,12 +175,13 @@ version = 2
         [blocks.segments.properties]
             precision = 2
 
+    # REF: https://ohmyposh.dev/docs/segments/languages/python
     [[blocks.segments]] # Python 环境信息
         type = "python"
         style = "diamond"
-        leading_diamond = "<transparent></>"
-        trailing_diamond = ""
-        background = "#686A67"
+        leading_diamond = "<transparent></>"
+        trailing_diamond = ""
+        background = "#3776AB"
         template = "   Python {{ .Venv }} {{ .Full }} "
 
         [blocks.segments.properties]
@@ -189,12 +190,13 @@ version = 2
             display_default = true
             display_version = true
 
+    # REF: https://ohmyposh.dev/docs/segments/languages/golang
     [[blocks.segments]] # Go 环境信息
         type = "go"
         style = "diamond"
-        leading_diamond = "<transparent></>"
-        trailing_diamond = ""
-        background = "#686A67"
+        leading_diamond = "<transparent></>"
+        trailing_diamond = ""
+        background = "#00ADD8"
         template = "   Go {{ .Full }} "
 
         [blocks.segments.properties]
@@ -202,13 +204,27 @@ version = 2
             home_enabled = true
             missing_command_text = ""
 
+    # REF: https://ohmyposh.dev/docs/segments/languages/node
     [[blocks.segments]] # Node.js 环境信息
         type = "node"
         style = "diamond"
-        leading_diamond = "<transparent></>"
-        trailing_diamond = ""
-        background = "#686A67"
+        leading_diamond = "<transparent></>"
+        trailing_diamond = ""
+        background = "#5FA04E"
         template = "   Node {{ .Full }} "
+
+        [blocks.segments.properties]
+            # display_mode = "always"
+            fetch_package_manager = true
+
+    # REF: https://ohmyposh.dev/docs/segments/languages/node
+    [[blocks.segments]] # Rust 环境信息
+        type = "rust"
+        style = "diamond"
+        leading_diamond = "<transparent></>"
+        trailing_diamond = ""
+        background = "#000000"
+        template = "   Rust {{ .Full }} "
 
         [blocks.segments.properties]
             # display_mode = "always"
@@ -231,7 +247,7 @@ version = 2
         leading_diamond = ""
         trailing_diamond = ""
         foreground = "#FFFFFF"
-        background = "#256C9D"
+        background = "#0078D4"
 
         # template = "  {{ .Name }} {{ .Version }} ➜ "
         template = "  {{ .Name }} {{ .Version }}  "

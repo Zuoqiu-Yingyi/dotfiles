@@ -1,3 +1,6 @@
+# Initialize oh-my-posh
+oh-my-posh --init --shell pwsh --config '~/configs/theme.omp.toml' | Invoke-Expression
+
 # 历史与插件补全
 Set-PSReadLineOption -PredictionSource HistoryAndPlugin
 
