@@ -124,7 +124,7 @@ version = 2
         # {{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }}: 存在的 Stash 数量
         template = """ \
             {{ .UpstreamIcon }} \
-            {{ .RepoName }} \
+            <b>{{ .RepoName }}</b> \
             {{ .HEAD }} \
             {{ .BranchStatus }}\
             {{ if .Working.Changed }}  {{ .Working.String }}{{ end }}\
@@ -161,9 +161,10 @@ version = 2
         foreground = "#686A67"
         template = "├─"
 
+    # REF: https://ohmyposh.dev/docs/segments/system/sysinfo
     [[blocks.segments]] # 系统资源信息
         type = "sysinfo"
-        style = "diamond"
+        style = "powerline"
         trailing_diamond = ""
         background = "#686A67"
         template = """ \
@@ -175,6 +176,23 @@ version = 2
         [blocks.segments.properties]
             precision = 2
 
+    # REF: https://ohmyposh.dev/docs/segments/system/battery
+    [[blocks.segments]] # 电量信息
+        type = "battery"
+        style = "powerline"
+        powerline_symbol = ""
+        background_templates = [
+            "{{ if eq \"Charging\" .State.String }}#40c4ff{{ end }}",
+            "{{ if eq \"Discharging\" .State.String }}#ff5722{{ end }}",
+            "{{ if eq \"Full\" .State.String }}#4caf50{{ end }}"
+        ]
+        template = "🔋 {{ if .Error }}{{ .Error}}{{ else }}{{ .Percentage }}% {{ .Icon }}{{ end }} "
+
+        [blocks.segments.properties]
+            discharging_icon = ""
+            charging_icon = ""
+            charged_icon = ""
+
     # REF: https://ohmyposh.dev/docs/segments/languages/node
     [[blocks.segments]] # Rust 环境信息
         type = "rust"
@@ -185,7 +203,7 @@ version = 2
         template = "   <b>Rust</b> {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
 
         [blocks.segments.properties]
-            display_mode = "always"
+            # display_mode = "always"
             home_enabled = true
             missing_command_text = ""
 
@@ -199,7 +217,7 @@ version = 2
         template = "   <b>Go</b> {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
 
         [blocks.segments.properties]
-            display_mode = "always"
+            # display_mode = "always"
             home_enabled = true
             missing_command_text = ""
 
@@ -213,7 +231,7 @@ version = 2
         template = " <b>Ｋ</b> <b>Kotlin</b> {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
 
         [blocks.segments.properties]
-            display_mode = "always"
+            # display_mode = "always"
             home_enabled = true
             missing_command_text = ""
 
@@ -227,7 +245,7 @@ version = 2
         template = "   <b>Java</b> {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
 
         [blocks.segments.properties]
-            display_mode = "always"
+            # display_mode = "always"
             home_enabled = true
             missing_command_text = ""
 
@@ -241,7 +259,7 @@ version = 2
         template = "   <b>Python</b> {{ if .Venv }} {{ .Venv }}{{ end }}{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
 
         [blocks.segments.properties]
-            display_mode = "always"
+            # display_mode = "always"
             home_enabled = true
             missing_command_text = ""
 
@@ -259,7 +277,7 @@ version = 2
         template = "   <b>Node</b> {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} "
 
         [blocks.segments.properties]
-            display_mode = "always"
+            # display_mode = "always"
             home_enabled = true
             missing_command_text = ""
 

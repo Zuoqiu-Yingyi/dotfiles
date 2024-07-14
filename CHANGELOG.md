@@ -6,6 +6,7 @@
 - 更新 `Oh My Posh` 主题文件 `theme.omp.toml` | Update `Oh My Posh` theme file `theme.omp.toml`
 - 添加 `Java` 语言片段 | Add `Java` language snippet
 - 添加 `Kotlin` 语言片段 | Add `Kotlin` language snippet
+- 添加电源状态信息片段 | Add power status snippet
 
 ## 2024-07-08
 
