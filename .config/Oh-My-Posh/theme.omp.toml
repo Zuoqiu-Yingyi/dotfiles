@@ -182,8 +182,8 @@ version = 2
         style = "powerline"
         powerline_symbol = ""
         background_templates = [
-            "{{ if eq .State.String \"Charging\" }}#C67915{{ end }}",
-            "{{ if eq .State.String \"Discharging\" }}#3F503B{{ end }}",
+            "{{ if eq .State.String \"Discharging\" }}#C67915{{ end }}",
+            "{{ if eq .State.String \"Charging\" }}#3F503B{{ end }}",
             "{{ if eq .State.String \"Full\" }}#3F4F65{{ end }}"
         ]
         template = """ \
