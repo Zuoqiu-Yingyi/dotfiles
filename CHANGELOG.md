@@ -4,6 +4,7 @@
 
 - 更新 `ESLint` 配置文件 | Update `ESLint` config file
 - 更新 `EditorConfig` 配置文件 | Update `EditorConfig` config file
+- 添加 `commitlint` 配置文件 | Add `commitlint` config file
 
 ## 2024-07-18
 
