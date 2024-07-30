@@ -3,6 +3,7 @@
 ## 2024-07-31
 
 - 更新 `ESLint` 配置文件 | Update `ESLint` config file
+- 更新 `EditorConfig` 配置文件 | Update `EditorConfig` config file
 
 ## 2024-07-18
 
