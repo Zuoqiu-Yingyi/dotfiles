@@ -1,7 +1,37 @@
 "$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
 
 final_space = false
-version = 2
+version = 3
+
+[[blocks]] # 第 1 行 (右)
+    type = "prompt"
+    alignment = "right"
+
+    [[blocks.segments]] # 上次执行时间
+        type = "executiontime"
+        style = "diamond"
+        leading_diamond = ""
+        background = "#143467"
+
+        template = "  {{ .FormattedMs }} s "
+        # template = " {{ .FormattedMs }} s "
+
+        [blocks.segments.properties]
+            style = "dallas"
+            threshold = 0
+
+    [[blocks.segments]] # 上次执行状态
+        type = "status"
+        style = "diamond"
+        trailing_diamond = ""
+        foreground = "#B7DFB9"
+        foreground_templates = ["{{ if .Error }}#FFD599{{ end }}"]
+        background = "#425347"
+        background_templates = ["{{ if .Error }}#554636{{ end }}"]
+
+        [blocks.segments.properties]
+            always_enabled = true
+            status_template = "{{ reason .Code }} {{ if eq .Code 0 }}{{ else }}{{ end }}"
 
 [[blocks]] # 第 1 行 (左)
     type = "prompt"
@@ -57,37 +87,6 @@ version = 2
         [blocks.segments.properties]
             style = "full"
             folder_separator_icon = "/"
-
-
-[[blocks]] # 第 1 行 (右)
-    type = "prompt"
-    alignment = "right"
-
-    [[blocks.segments]] # 上次执行时间
-        type = "executiontime"
-        style = "diamond"
-        leading_diamond = ""
-        background = "#143467"
-
-        # template = "⏱️  {{ .FormattedMs }}s "
-        template = " {{ .FormattedMs }} s "
-
-        [blocks.segments.properties]
-            style = "dallas"
-            threshold = 0
-
-    [[blocks.segments]] # 上次执行状态
-        type = "status"
-        style = "diamond"
-        trailing_diamond = ""
-        foreground = "#B7DFB9"
-        foreground_templates = ["{{ if .Error }}#FFD599{{ end }}"]
-        background = "#425347"
-        background_templates = ["{{ if .Error }}#554636{{ end }}"]
-
-        [blocks.segments.properties]
-            always_enabled = true
-            status_template = "{{ if eq .Code 0 }}{{ else }}{{ end }}  {{ reason .Code }}"
 
 [[blocks]] # 第 2 行
     type = "prompt"
@@ -184,7 +183,7 @@ version = 2
         background_templates = [
             "{{ if eq .State.String \"Discharging\" }}#C67915{{ end }}",
             "{{ if eq .State.String \"Charging\" }}#3F503B{{ end }}",
-            "{{ if eq .State.String \"Full\" }}#3F4F65{{ end }}"
+            "{{ if eq .State.String \"Full\" }}#3F4F65{{ end }}",
         ]
         template = """ \
             {{ if eq "Discharging" .State.String }}{{ else }}{{ end }} \
@@ -206,7 +205,7 @@ version = 2
         background_templates = [
             # "{{ if eq .Type \"wifi\" }}#2C2F3B{{ end }}",
             # "{{ if eq .Type \"ethernet\" }}#2C2F3B{{ end }}",
-            "{{ if eq .Type \"bluetooth\" }}#0082FC{{ end }}"
+            "{{ if eq .Type \"bluetooth\" }}#0082FC{{ end }}",
             # "{{ if eq .Type \"cellular\" }}#2C2F3B{{ end }}"
         ]
         template = """ \

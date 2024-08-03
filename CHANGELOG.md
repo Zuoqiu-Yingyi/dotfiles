@@ -1,5 +1,9 @@
 # 更改日志 | Change Log
 
+## 2024-08-03
+
+- 更新 `Oh My Posh` 主题文件 `theme.omp.toml` | Update `Oh My Posh` theme file `theme.omp.toml`
+
 ## 2024-07-31
 
 - 更新 `ESLint` 配置文件 | Update `ESLint` config file
