@@ -3,6 +3,7 @@
 ## 2024-08-17
 
 - 更新 `Oh-My-Posh` 配置文件 | Update `Oh-My-Posh` config file
+- 更新 `ESLint` 配置文件 | Update `ESLint` config file
 
 ## 2024-08-11
 
