@@ -1,5 +1,9 @@
 # 更改日志 | Change Log
 
+## 2024-08-21
+
+- 添加 `Clang-Format` 配置文件 | Add `Clang-Format` config file
+
 ## 2024-08-17
 
 - 更新 `Oh-My-Posh` 配置文件 | Update `Oh-My-Posh` config file
