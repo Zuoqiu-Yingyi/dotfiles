@@ -19,40 +19,30 @@ version = 3
         foreground = "#0A703E"
         template = "╭─"
 
+    # REF: https://ohmyposh.dev/docs/segments/system/os
     [[blocks.segments]] # 操作系统图标
         type = "os"
         style = "plain"
         background = "#0A703E"
-        template = " {{ if .WSL }} ↝ {{ end }}{{ .Icon }} "
+        # template = " {{ if .WSL }} ↝ {{ end }}{{ .Icon }} "
+        template = " {{ if .WSL }} ↝ {{ end }}{{ .Icon }} "
 
-        [blocks.segments.properties]
-            # alpine = "\uf300"
-            # arch = "\uf303"
-            # centos = "\uf304"
-            # debian = "\uf306"
-            # elementary = "\uf309"
-            # fedora = "\uf30a"
-            # gentoo = "\uf30d"
-            # linux = "\ue712"
-            # macos = "\ue711"
-            # manjaro = "\uf312"
-            # mint = "\uf30f"
-            # opensuse = "\uf314"
-            # raspbian = "\uf315"
-            # ubuntu = "\uf31c"
-            # windows = "\ue70f"
-
-    [[blocks.segments]] # 用户名 @ 主机名
-        type = "shell"
+    # REF: https://ohmyposh.dev/docs/segments/system/session
+    [[blocks.segments]] # 会话信息
+        type = "session"
         style = "plain"
         background = "#0A703E"
-        template = " {{ .UserName }}＠{{ .HostName }} "
+        template = """ \
+            {{ .UserName }}＠{{ .HostName }} \
+            {{ if .SSHSession }} {{ end }}\
+            {{ if .Root }} {{ end }}\
+        """
 
-    [[blocks.segments]] # 是否为 root 用户
-        type = "root"
-        style = "plain"
-        background = "#0A703E"
-        template = " "
+    # [[blocks.segments]] # 是否为 root 用户
+    #     type = "root"
+    #     style = "plain"
+    #     background = "#0A703E"
+    #     template = " "
 
     [[blocks.segments]] # 当前目录
         type = "path"
