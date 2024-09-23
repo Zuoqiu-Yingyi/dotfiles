@@ -176,6 +176,7 @@ version = 3
         type = "battery"
         style = "powerline"
         powerline_symbol = ""
+        background = "#3F4F65"
         background_templates = [
             "{{ if eq .State.String \"Discharging\" }}#C67915{{ end }}",
             "{{ if eq .State.String \"Charging\" }}#3F503B{{ end }}",
@@ -183,7 +184,7 @@ version = 3
         ]
         template = """ \
             {{ if eq "Discharging" .State.String }}{{ else }}{{ end }} \
-            {{ .Icon }}  \
+            {{ if .Icon }}{{ .Icon}} {{ end }} \
             {{ if .Error }}{{ .Error}}{{ else }}{{ .Percentage }}%{{ end }} \
         """
 
