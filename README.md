@@ -6,6 +6,8 @@ My personal dotfiles.
   - [.clang-format](./.config/Clang-Format/.clang-format)
 - [![commitlint](https://img.shields.io/badge/%E2%80%8D_-commitlint-000000?style=flat-square&logo=commitlint&logoColor=white)](https://commitlint.js.org/)
   - [commitlint.config.ts](./.config/commitlint/commitlint.config.ts)
+- [![CSpell](https://img.shields.io/badge/C_%E2%80%8D-CSpell-F5EC00?style=flat-square&logoColor=white)](https://cspell.org/)
+  - [cspell.config.yaml](./.config/CSpell/cspell.config.yaml)
 - [![EditorConfig](https://img.shields.io/badge/%E2%80%8D-EditorConfig-FEFEFE?style=flat-square&logo=editorconfig&logoColor=white)](https://editorconfig.org/)
   - [.editorconfig](./.config/EditorConfig/.editorconfig)
 - [![ESLint](https://img.shields.io/badge/%E2%80%8D-ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white)](https://eslint.org/)

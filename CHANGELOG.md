@@ -8,6 +8,10 @@
 
 - 更新 `ESLint` 配置文件 | Update `ESLint` config file
 
+## 2024-11-30
+
+- 添加 `CSpell` 配置文件 | Add `CSpell` config file
+
 ## 2024-09-29
 
 - 更新 `ESLint` 配置文件 | Update `ESLint` config file

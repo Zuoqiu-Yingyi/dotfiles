@@ -1,0 +1,67 @@
+# REF https://cspell.org/configuration/
+
+$schema: "https://raw.githubusercontent.com/streetsidesoftware/cspell/main/packages/cspell-types/cspell.schema.json"
+
+# Version of the setting file.  Always 0.2
+version: "0.2"
+
+# Current active spelling language
+# @default: en-US
+language: en-US
+
+# a list of words to be considered correct.
+# words: []
+
+# a list of words to be always considered incorrect
+# This is useful for offensive words and common spelling errors.
+# For example "hte" should be "the"
+flagWords: []
+
+# a list of words to be ignored (even if they are in the flagWords).
+# ignoreWords: []
+
+# a list of globs to specify which files are to be ignored.
+ignorePaths:
+  - dist/**
+  - node_modules/**
+  - temp/**
+
+  - package.json
+  - pnpm-lock.yaml
+
+# this allows you to define named patterns to be used with ignoreRegExpList and includeRegExpList.
+patterns:
+  - name: uuid
+    pattern: /[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}/g
+
+# list of patterns to be ignored
+ignoreRegExpList:
+  - uuid
+
+# (Advanced) limits the text checked to be only that matching the expressions in the list.
+# includeRegExpList: []
+
+# max number of problems per file.
+# @default: 100
+maxNumberOfProblems: 128
+
+# the minimum length of a word before it is checked.
+# @default: 4
+minWordLength: 4
+
+# set to true to allow compound words by default.
+# @default: false
+# allowCompoundWords: false
+
+# this list defines any custom dictionaries to use. This is how you can include other languages like Spanish.
+dictionaryDefinitions:
+  - name: cspell-words
+    path: ./cspell-words.txt
+    addWords: true
+
+# list of the names of the dictionaries to use. See https://cspell.org/docs/dictionaries/
+dictionaries:
+  - cspell-words
+
+# this allow for per programming language configuration settings. See https://cspell.org/configuration/language-settings/#LanguageSettings
+# languageSettings: []
