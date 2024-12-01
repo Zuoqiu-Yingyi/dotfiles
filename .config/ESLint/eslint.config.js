@@ -1,3 +1,7 @@
+/**
+ * @antfu/eslint-config: 3.11.2
+ */
+
 import antfu, {
     GLOB_JS,
     GLOB_JSX,
@@ -91,26 +95,24 @@ const rules = {
                 "object", // import log = console.log;
             ],
             internalPattern: [
-                "@/**",
+                "^@/.*",
             ],
             customGroups: {
                 value: {
-                    $bun: "bun:**",
-                    $node: "node:**",
-                    $repo: "@repo/**",
-                    $workspace: "@workspace/**",
-                    $base: "~/**",
-                    $vue: "**.vue",
-                    $svelte: "**.svelte",
+                    $node: "^node:.+",
+                    $repo: "^@repo/.*",
+                    $workspace: "^@workspace/.*",
+                    $base: "^~/.*",
+                    $vue: ".+\\.vue",
+                    $svelte: ".+\\.svelte",
                 },
                 type: {
-                    "$bun-type": "bun:**",
-                    "$node-type": "node:**",
-                    "$repo-type": "@repo/**",
-                    "$workspace-type": "@workspace/**",
-                    "$base-type": "~/**",
-                    "$vue-type": "**.vue",
-                    "$svelte-type": "**.svelte",
+                    "$node-type": "^node:.+",
+                    "$repo-type": "^@repo/.*",
+                    "$workspace-type": "^@workspace/.*",
+                    "$base-type": "^~/.*",
+                    "$vue-type": ".+\\.vue",
+                    "$svelte-type": ".+\\.svelte",
                 },
             },
         },
