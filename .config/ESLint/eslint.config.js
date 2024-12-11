@@ -148,15 +148,23 @@ export default antfu({
                 "warn",
                 "always",
             ],
+            "style/indent-binary-ops": [
+                "off",
+                "tab",
+            ],
+            "style/linebreak-style": [
+                "error",
+                "unix",
+            ],
             "style/no-trailing-spaces": [
                 "warn",
                 {
                     ignoreComments: true,
                 },
             ],
-            "style/linebreak-style": [
-                "error",
-                "unix",
+            "style/quote-props": [
+                "warn",
+                "as-needed",
             ],
         },
     },
