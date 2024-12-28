@@ -1,5 +1,9 @@
 # 更改日志 | Change Log
 
+## 2024-12-29
+
+- 添加 `tex-fmt` 配置文件 | Add `tex-fmt` config file
+
 ## 2024-12-12
 
 - 更新 `ESLint` 配置文件 | Update `ESLint` config file

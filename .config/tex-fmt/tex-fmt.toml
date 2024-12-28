@@ -1,0 +1,10 @@
+# REF: https://github.com/WGUNDERWOOD/tex-fmt/blob/main/tex-fmt.toml
+
+check = false
+print = false
+wrap = false
+wraplen = 1024
+tabsize = 4
+tabchar = "space"
+stdin = false
+verbosity = "warn"
